@@ -52,7 +52,6 @@ public class CaesarCipher extends CipherSpi {
         } else {
             return (char)(val + base);
         }
-
     }
 
     static char encrypt(final char character, final int shift) {

@@ -26,13 +26,13 @@ public class CaesarCipherTest {
     }
 
     private String decrypt(final CaesarKey key, final String cipherText) throws NoSuchAlgorithmException, NoSuchProviderException, NoSuchPaddingException, InvalidKeyException {
-        final Cipher cipher = Cipher.getInstance("Caesar", CustomProvider.NAME);
+        final Cipher cipher = Cipher.getInstance("Caesar");
         cipher.init(Cipher.DECRYPT_MODE, key, new SecureRandom());
         return new String(cipher.update(cipherText.getBytes(StandardCharsets.UTF_8)), StandardCharsets.UTF_8);
     }
 
     private String encrypt(final CaesarKey key, final String plainText) throws NoSuchAlgorithmException, NoSuchProviderException, NoSuchPaddingException, InvalidKeyException {
-        final Cipher cipher = Cipher.getInstance("Caesar", CustomProvider.NAME);
+        final var cipher = Cipher.getInstance("Caesar");
         cipher.init(Cipher.ENCRYPT_MODE, key, new SecureRandom());
         return new String(cipher.update(plainText.getBytes(StandardCharsets.UTF_8)), StandardCharsets.UTF_8);
     }
